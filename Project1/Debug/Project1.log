@@ -1,3 +1,5 @@
 ﻿  Source.cpp
-C:\Users\Al-John\Desktop\desktop\Drawings\Github\Hello-World\Project1\Source.cpp(18,21): warning C4101: 'actionInput': unreferenced local variable
+C:\Users\Al-John\Desktop\desktop\Drawings\Github\Hello-World\Project1\Source.cpp(21,9): warning C4101: 'itemOrder': unreferenced local variable
+C:\Users\Al-John\Desktop\desktop\Drawings\Github\Hello-World\Project1\Source.cpp(152): warning C4715: 'ord_decision': not all control paths return a value
+C:\Users\Al-John\Desktop\desktop\Drawings\Github\Hello-World\Project1\Source.cpp(140): warning C4715: 'bin_decision': not all control paths return a value
   Project1.vcxproj -> C:\Users\Al-John\Desktop\desktop\Drawings\Github\Hello-World\Project1\Debug\Project1.exe
