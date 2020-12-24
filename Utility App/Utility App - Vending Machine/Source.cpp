@@ -205,7 +205,7 @@ void menu() { // defines void function menu
         << "5. Milktea - 2 AED \n"
         << "----------------------- \n" // displays menu of possible actions (mathematical operations or quit the program) to choose from
         << "Please use the number assigned to each item to select them \n" // printed message tells user to use the numbers assigned to each item to choose them for ordering
-        << "Alternatively, you can press 0 to exit the program if you wish. \n"; // prints message telling users how to end the program early without ordering
+        << "Alternatively, you can press 0 to exit the program at any time if you wish. \n"; // prints message telling users how to end the program early without ordering
 
 }
 

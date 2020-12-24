@@ -1,0 +1,5 @@
+﻿  Source.cpp
+C:\Users\Al-John\Desktop\desktop\Drawings\Github\Hello-World\Utility App\Utility App - Vending Machine\Source.cpp(95,41): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Al-John\Desktop\desktop\Drawings\Github\Hello-World\Utility App\Utility App - Vending Machine\Source.cpp(152): warning C4715: 'bin_decision': not all control paths return a value
+C:\Users\Al-John\Desktop\desktop\Drawings\Github\Hello-World\Utility App\Utility App - Vending Machine\Source.cpp(165): warning C4715: 'ord_decision': not all control paths return a value
+  Utility App - Vending Machine.vcxproj -> C:\Users\Al-John\Desktop\desktop\Drawings\Github\Hello-World\Utility App\Utility App - Vending Machine\Debug\Utility App - Vending Machine.exe
