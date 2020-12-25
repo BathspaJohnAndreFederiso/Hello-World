@@ -13,7 +13,7 @@ bool ord_decision(int a, bool b); // functions that contain if-elses to compleme
 
 double reset_value(double a); // declares function to reset the argument value back to 0
 double debug(double a); // declares function that deals with whenever an invalid/incorrect data type is entered in a cin
-double loop_debug(double a);
+double loop_debug(double a); // declares looping function that also deals with invalid/incorrect data entered
 double inv_value(double a, double b); // function that contains a condition check if one variable is lesser than the other
 void menu(); // function that displays an item menu and how to order them
 
