@@ -17,7 +17,6 @@ double loop_debug(double a);
 double inv_value(double a, double b); // function that contains a condition check if one variable is lesser than the other
 void menu(); // function that displays an item menu and how to order them
 
-
 int main() {
 
     int orderInput = 0, actionInput = 0; // declares variables that reads user input for item order and decisions respectively
