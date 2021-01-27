@@ -131,6 +131,7 @@ int main() {
                 << "1 - Yes \n"
                 << "2 - No \n"; // displays message informing of the successful transaction, remaining change (if any) and one more decision to make
             cin >> actionInput; // reads user input for this one last decision, which is either to buy again or exit after the transaction
+            actionInput = loop_debug(actionInput); // calls loop_debug function for actionInput here again
             machineRun = bin_decision(actionInput, machineRun); // calls bin_decision function with variables actionInput and machineRun as arguments, returns the result from this function
         }
 
@@ -229,3 +230,4 @@ double fiv_order(double a) {
     a += 2.0; // adds 2.0
     return a;
 }
+
