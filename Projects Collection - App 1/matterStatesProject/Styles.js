@@ -39,21 +39,21 @@ import {StyleSheet } from 'react-native'
            textAlign:'center'
            },
        
-         modalText:{
-         marginBottom: 15,
+         modText:{
+         marginBottom: 5,
          textAlign: "center"
          },
          centeredView: {
            flex: 1,
            justifyContent: "center",
            alignItems: "center",
-           marginTop: 22
+           marginTop: 40
          },
-         modalView: {
-           margin: 20,
+         modView: {
+           margin: 50,
            backgroundColor: "white",
            borderRadius: 20,
-           padding: 35,
+           padding: 15,
            alignItems: "center",
            shadowColor: "#000",
            shadowOffset: {
@@ -68,11 +68,8 @@ import {StyleSheet } from 'react-native'
            borderRadius: 20,
            padding: 10,
            elevation: 2,
+           textAlign:'center'
            
-           
-         },
-         buttonOpen: {
-           backgroundColor: "#F194FF",
          },
          buttonClose: {
            backgroundColor: "#2196F3",
@@ -88,7 +85,7 @@ import {StyleSheet } from 'react-native'
          },
          container: {
           paddingTop: 5,
-         flexDirection:'row',
+         //flexDirection:'row',
          justifyContent: 'space-between',
           },
           
