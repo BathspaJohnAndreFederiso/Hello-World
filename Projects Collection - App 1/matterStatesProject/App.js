@@ -41,6 +41,9 @@ constructor(props){
     var r ="No Transition/Not Valid" 
    }
  }
+ else if(a == 0 || b == 0){
+   var r ="You have not chosen for both states yet."
+ }
 
 
  alert(r); // creates alert with r value passed in
@@ -135,7 +138,7 @@ render() {
             <View style={styles.modView}>
               <Text style={styles.modText}>This is the States of Matter Calculator!</Text>
 
-              <Text style={styles.modText}>Select two states from the first two rows...</Text>  
+              <Text style={styles.modText}>Select two states from the two sections...</Text>  
 
               <Text style={styles.modText}>And click on Transition to find the transition between the states you selected.</Text>
 
