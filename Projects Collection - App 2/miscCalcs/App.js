@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Component} from 'react';
-import { Button, View, Text, Image, TextInput, TouchableOpacity, StyleSheet, Modal } from 'react-native';
+import { Button, View, Text, Image, TextInput, TouchableOpacity, StyleSheet, Modal, Pressable } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'; // imports some navigation features from downloaded react-navigation
 
@@ -35,6 +35,8 @@ function Home({ navigation }) {
  );
 }
 
+
+
   class TipCalc extends Component {
   constructor(props){
    super(props);
@@ -54,7 +56,7 @@ function Home({ navigation }) {
    {/*uses alert system to return the value of r, which is the tip amount*/}
    alert("Tip: " + r);
   }
-
+   
   state = {
     modalVisible: false
   };
@@ -63,12 +65,14 @@ function Home({ navigation }) {
     this.setState({ modalVisible: visible });
   }
 
+  
+  
 
 
   render() {
-
     const { modalVisible } = this.state;
 
+    
    return (
    <View>
    <Text style={styles.titleTxt}>Tip Calculating</Text>
@@ -85,12 +89,46 @@ function Home({ navigation }) {
    <Text style = {styles.button1}> Calculate for Tip </Text>
    </TouchableOpacity>
    </View>
-  
+    
+   <Modal  
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          
+          onRequestClose={() => {
+            Alert.alert("Modal has been closed."); 
+            this.setModalVisible(!modalVisible);
+          }}
+        >
+          <View style={styles.centeredModalView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalTxt}>This is the Tip Calculating Page </Text>
+              <Text style={styles.modalTxt}>Enter your bill paid </Text>
+
+              <Pressable 
+                style={[styles.modalButton, styles.modalButtonClose]}
+                onPress={() => this.setModalVisible(!modalVisible)}
+              >
+                <Text style={styles.textStyle}>Got It</Text>
+              </Pressable>
+            </View>
+          </View>
+     </Modal>
+
+    
   
    </View>
    )
    }
   }
+
+
+
+
+
+
+
+
 
 
   class IntCalc extends Component {
@@ -121,8 +159,21 @@ function Home({ navigation }) {
       
     
      }
+
+     state = {
+      modalVisible: false
+     };
+    
+     setModalVisible = (visible) => {
+      this.setState({ modalVisible: visible });
+     }
+
+
+
   
     render() {
+      const { modalVisible } = this.state;
+
      return (
      <View>
        
@@ -155,6 +206,33 @@ function Home({ navigation }) {
      </TouchableOpacity>
      </View>
     
+     <Modal  
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          
+          onRequestClose={() => {
+            Alert.alert("Modal has been closed."); 
+            this.setModalVisible(!modalVisible);
+          }}
+        >
+          <View style={styles.centeredModalView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalTxt}>This is the Simple Interest Calculating Page </Text>
+              <Text style={styles.modalTxt}>Enter your initial value, years, and the rate of interest </Text>
+
+              <Pressable 
+                style={[styles.modalButton, styles.modalButtonClose]}
+                onPress={() => this.setModalVisible(!modalVisible)}
+              >
+                <Text style={styles.textStyle}>Got It</Text>
+              </Pressable>
+            </View>
+          </View>
+        </Modal>
+      
+
+
     
      </View>
      )
@@ -225,7 +303,7 @@ const styles = StyleSheet.create({
       marginTop: 40
     },
     modalView: {
-      margin: 50,
+      margin: 20,
       backgroundColor: "white",
       borderRadius: 20,
       padding: 15,
@@ -239,14 +317,14 @@ const styles = StyleSheet.create({
       shadowRadius: 4,
       elevation: 5
     },
-    modalbutton: {
+    modalButton: {
       borderRadius: 20,
       padding: 10,
       elevation: 2,
       textAlign:'center'
       
     },
-    modalbuttonClose: {
+    modalButtonClose: {
       backgroundColor: "#2196F3",
     },
     textStyle: {
