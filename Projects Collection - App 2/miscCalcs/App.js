@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Component} from 'react';
-import { Button, View, Text, Image, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { Button, View, Text, Image, TextInput, TouchableOpacity, StyleSheet, Modal } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'; // imports some navigation features from downloaded react-navigation
 
@@ -8,6 +8,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'; // 
 
 
 function Home({ navigation }) {
+
+  {/* This is the home function, there are buttons that call the navigation from the react navigation package to let the user go to different pages  */}
+
  return (
  <View  style={{flex: 1, alignItems: 'center', justifyContent: 'space-around', backgroundColor: 'gray'}}>
  <Text style={styles.titleTxt}>Business Calculator</Text>
@@ -18,11 +21,14 @@ function Home({ navigation }) {
    onPress={() => navigation.navigate('Tip Calculator')}
   />
    
+  {/* This button tells the navigation to call the Stack.Screen 'Tip Calculator' on press */}
+
   <Button 
    title="Calculate for Simple Interest"
    onPress={() => navigation.navigate('Simple Interest Calculator')}
   />
   
+  {/* ditto but for 'Simple Interest Calculator' */}
 
  </View>
 
@@ -32,28 +38,51 @@ function Home({ navigation }) {
   class TipCalc extends Component {
   constructor(props){
    super(props);
+
+   {/* declares only one state */}
+
    this.state ={ n1:0};
    }
+
+   //* function tip is created with no passed in arguments*//
+
    tip = () => {
+     {/* declares var a which parses the value of n1 into float */}
    var a=parseFloat(this.state.n1);
+   {/* declares var r which is a multiplied by 0.20*/}
    var r=a*0.20;
+   {/*uses alert system to return the value of r, which is the tip amount*/}
    alert("Tip: " + r);
   }
 
+  state = {
+    modalVisible: false
+  };
+  
+  setModalVisible = (visible) => {
+    this.setState({ modalVisible: visible });
+  }
+
+
+
   render() {
+
+    const { modalVisible } = this.state;
+
    return (
    <View>
    <Text style={styles.titleTxt}>Tip Calculating</Text>
-   
+   {/* textinput uses the n1 state to grab any entered values */}
    <TextInput style = {styles.input}
    keyboardType ='numeric'
    placeholder = "Enter Your Bill"
    placeholderTextColor = "gray"
    onChangeText={n1=>this.setState({n1})} />
   
+   {/*button calls the tip function */}
   <View style={styles.container}>
    <TouchableOpacity onPress={this.tip}>
-   <Text style = {styles.button}> Calculate for Tip </Text>
+   <Text style = {styles.button1}> Calculate for Tip </Text>
    </TouchableOpacity>
    </View>
   
@@ -78,16 +107,16 @@ function Home({ navigation }) {
       var b=parseFloat(this.state.n2);
       var c=parseFloat(this.state.n3);
 
-      if(c < 100){
+      if(c <= 100 || c > 0){
         {/* code that runs if c does not exceed a value of 100 */}
         var d = c/100;
-        
+        {/* creates new variable d and assigned to it the value of c divided by 100 */}
         var r=(a*b)*d;
         var e = a + r;
-
+        {/* r is used to return the interest amount, e is used to return the interest + loan value*/}
         alert("Interest: " + r + "\nTotal Amount to be Paid/Received: " + e);
       }else{
-        alert("Not valid Interest rate.");
+        alert("Not a valid Interest rate entered. Enter another one (Below 100 and above 0)");
       }
       
     
@@ -96,8 +125,9 @@ function Home({ navigation }) {
     render() {
      return (
      <View>
+       
      <Text style={styles.titleTxt}>Simple Interest Calculating</Text>
-     
+       
      <TextInput style = {styles.input}
      keyboardType ='numeric'
      placeholder = "Enter Initial Balance"
@@ -109,7 +139,7 @@ function Home({ navigation }) {
      placeholder = "Enter Years"
      placeholderTextColor = "gray"
      onChangeText={n2=>this.setState({n2})} />
-
+      {/* These buttons assign to the states the values of the textInputs*/}
      <TextInput style = {styles.input}
      keyboardType ='numeric'
      placeholder = "Enter Interest Rate"
@@ -118,10 +148,10 @@ function Home({ navigation }) {
 
 
 
-     {/* This TouchableOpacity calls the interest function on press */}
+     {/* This TouchableOpacity calls the "interest" function on press */}
      <View style={styles.container}>
      <TouchableOpacity onPress={this.interest}>
-     <Text style = {styles.button}> Calculate Interest </Text>
+     <Text style = {styles.button1}> Calculate Interest </Text>
      </TouchableOpacity>
      </View>
     
@@ -138,7 +168,7 @@ function Home({ navigation }) {
 
 
 
-
+ // creates const Stack, used to create a stack navigator from react-navigation/native stack
 const Stack = createNativeStackNavigator();
 function App() {
  return (
@@ -152,7 +182,7 @@ function App() {
  );
 }
 export default App;
-
+// the initial route (read: upon launching the app) set is Home, which leads to the other two pages TipCalc and IntCalc
 
 
 const styles = StyleSheet.create({
@@ -166,10 +196,10 @@ const styles = StyleSheet.create({
   height: 60,
   borderColor: 'green',
   borderWidth: 5,
-  fontSize:20,
+  fontSize:30,
   textAlign: 'center'
   },
-  button: {
+  button1: {
   fontSize:30,
   margin: 20,
   backgroundColor: "skyblue",
@@ -183,5 +213,49 @@ const styles = StyleSheet.create({
   fontWeight: 'bold',
   textAlign:'center',
   marginBottom: 10
-  }
+  },
+  modalTxt:{
+    marginBottom: 5,
+    textAlign: "center"
+    },
+    centeredModalView: {
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+      marginTop: 40
+    },
+    modalView: {
+      margin: 50,
+      backgroundColor: "white",
+      borderRadius: 20,
+      padding: 15,
+      alignItems: "center",
+      shadowColor: "#000",
+      shadowOffset: {
+        width: 0,
+        height: 2
+      },
+      shadowOpacity: 0.20,
+      shadowRadius: 4,
+      elevation: 5
+    },
+    modalbutton: {
+      borderRadius: 20,
+      padding: 10,
+      elevation: 2,
+      textAlign:'center'
+      
+    },
+    modalbuttonClose: {
+      backgroundColor: "#2196F3",
+    },
+    textStyle: {
+      color: "white",
+      fontWeight: "bold",
+      textAlign: "center"
+    },
+    modalText: {
+      marginBottom: 15,
+      textAlign: "center"
+    },
  })
