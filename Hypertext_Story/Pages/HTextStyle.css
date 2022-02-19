@@ -1,0 +1,122 @@
+﻿
+.navbar { /*manages any items with this class, this case a div*/
+
+   
+    
+    position: relative;
+    margin: 0 auto;
+    
+    
+}
+
+    .navbar a { /* manages any links in this class */
+        color: black;
+        background-color: white;
+        float: left;
+        padding: 14px 50px;
+        text-align: center;
+        font-size: 40px;
+        text-decoration: none;
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+
+.navbar a:hover { /* effects apply when any links on the navbar are hovered on*/
+            color: white;
+            background-color: black;
+}
+
+    .navbar .pagenum {
+        text-align: center;
+        background-color: black;
+        color: white;
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 25%;
+        left: 25px;
+    }
+
+.storybar { /* manages any items with the storybar class (mainly for navigating story pages)*/
+
+    position: relative;
+    margin: 0 auto;
+    width:50%;
+    overflow: auto;
+    padding: 20px;
+}
+
+.storybar a { /* manages any links in this class */
+        
+        float: right;
+        padding: 16px;
+        text-align: center;
+        font-size: 40px;
+        font-style: italic;
+        text-decoration: none;
+        background-color: cornflowerblue;
+        border-radius: 5px;
+        box-shadow: 0 4px #425;
+}
+
+.storybar a:hover { /* effects apply when any links on story navigation links are hovered on*/
+    color: white;
+    background-color: black;
+}
+
+.storybar a:active { /* effects apply when any links on story navigation links are clicked on*/
+        color: white;
+        background-color: black;
+        box-shadow: 0 2px black;
+        transform: translateY(3px)
+
+}
+
+.expobox {
+    position: relative;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 0 40px;
+    
+}
+
+.textbox {
+    position: relative;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 50%;
+    padding: 25px 80px;
+    font-size: 20px;
+    font-family: "Georgia";
+}
+.textbox img{
+   
+    width: 500px;
+    height: 400px;
+}
+
+.textbox div{
+    padding: 15px 0;
+}
+
+
+
+.navbar .active { /* manages objects with active class assigned*/
+    color: white;
+    background-color: black;
+}
+
+body { /* manages the body of the webpage*/
+    background-image: url('../img/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+   
+}
+
+
+
+.clearspace { /* commands to clear float space between objects and maintain their positions when tagged with float commands*/
+    clear: both;
+}
